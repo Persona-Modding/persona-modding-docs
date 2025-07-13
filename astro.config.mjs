@@ -28,6 +28,11 @@ export default defineConfig({
       plugins: [
         starlightSidebarTopics([
           {
+            label: "General",
+            link: "/general/contributing",
+            items: ["general/contributing"],
+          },
+          {
             label: "Persona 5 Royal",
             link: "/p5r/getting-started",
             items: ["p5r/getting-started"],
