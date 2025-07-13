@@ -13,7 +13,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/Persona-Modding/persona-modding.github.io",
         },
         { icon: "discord", label: "Discord", href: "https://discord.gg/naoto" },
       ],
