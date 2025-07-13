@@ -17,6 +17,10 @@ export default defineConfig({
         },
         { icon: "discord", label: "Discord", href: "https://discord.gg/naoto" },
       ],
+      editLink: {
+        baseUrl:
+          "https://github.com/Persona-Modding/persona-modding.github.io/edit/main/",
+      },
       components: {
         // Override the default `Sidebar` component with a custom one.
         Sidebar: "./src/components/Sidebar.astro",
