@@ -33,12 +33,12 @@ export default defineConfig({
             items: ["general/contributing"],
           },
           {
-            label: "Persona 3 FES",
+            label: "Persona 3 FES (PS2)",
             link: "/p3f",
             items: ["p3f/getting-started"],
           },
           {
-            label: "Persona 3 Portable",
+            label: "Persona 3 Portable (PC)",
             link: "/p3p",
             items: [
               {
@@ -46,43 +46,7 @@ export default defineConfig({
                 items: [
                   {
                     label: "Using Mods",
-                    items: [
-                      {
-                        label: "Windows",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/windows/installing-mods",
-                          "p3p/getting-started/using-mods/windows/troubleshooting",
-                          "p3p/getting-started/using-mods/windows/faq",
-                        ],
-                      },
-                      {
-                        label: "Steam Deck",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/steam-deck/installing-mods",
-                          "p3p/getting-started/using-mods/steam-deck/troubleshooting",
-                          "p3p/getting-started/using-mods/steam-deck/faq",
-                        ],
-                      },
-                      {
-                        label: "Linux",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/linux/installing-mods",
-                          "p3p/getting-started/using-mods/linux/troubleshooting",
-                          "p3p/getting-started/using-mods/linux/faq",
-                        ],
-                      },
-                      {
-                        label: "Common",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/common/troubleshooting",
-                          "p3p/getting-started/using-mods/common/faq",
-                        ],
-                      },
-                    ],
+                    items: ["p3p/getting-started/using-mods/using-mods"],
                   },
                   {
                     label: "Making Mods",
@@ -107,7 +71,7 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 3 Reload",
+            label: "Persona 3 Reload (PC)",
             link: "/p3r",
             items: [
               {
@@ -117,7 +81,7 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 4 Golden",
+            label: "Persona 4 Golden (PC)",
             link: "/p4g",
             items: [
               {
@@ -150,9 +114,14 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 5 Royal",
+            label: "Persona 5 Royal (PC)",
             link: "/p5r",
             items: ["p5r/getting-started"],
+          },
+          {
+            label: "Metaphor Refantazio (PC)",
+            link: "/metaphor",
+            items: ["metaphor/getting-started"],
           },
         ]),
       ],
