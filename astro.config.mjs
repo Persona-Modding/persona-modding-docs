@@ -33,12 +33,12 @@ export default defineConfig({
             items: ["general/contributing"],
           },
           {
-            label: "Persona 3 FES (PS2)",
-            link: "/p3f/getting-started",
+            label: "Persona 3 FES",
+            link: "/p3f",
             items: ["p3f/getting-started"],
           },
           {
-            label: "Persona 3 Portable (PC)",
+            label: "Persona 3 Portable",
             link: "/p3p",
             items: [
               {
@@ -107,8 +107,8 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 3 Reload (PC)",
-            link: "/p3r/getting-started",
+            label: "Persona 3 Reload",
+            link: "/p3r",
             items: [
               {
                 label: "Getting Started",
@@ -117,8 +117,8 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 4 Golden (PC)",
-            link: "/p4g/getting-started",
+            label: "Persona 4 Golden",
+            link: "/p4g",
             items: [
               {
                 label: "Getting Started",
@@ -150,8 +150,8 @@ export default defineConfig({
             ],
           },
           {
-            label: "Persona 5 Royal (PC)",
-            link: "/p5r/getting-started",
+            label: "Persona 5 Royal",
+            link: "/p5r",
             items: ["p5r/getting-started"],
           },
         ]),
