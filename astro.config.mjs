@@ -39,7 +39,7 @@ export default defineConfig({
           },
           {
             label: "Persona 3 Portable (PC)",
-            link: "/p3p",
+            link: "/p3p/getting-started/using-mods/windows/installing-mods/",
             items: [
               {
                 label: "Getting Started",
