@@ -33,32 +33,12 @@ export default defineConfig({
             items: ["general/contributing"],
           },
           {
-            label: "Persona 5 Royal",
-            link: "/p5r/getting-started",
-            items: ["p5r/getting-started"],
+            label: "Persona 3 FES (PS2)",
+            link: "/p3f/getting-started",
+            items: ["p3f/getting-started"],
           },
           {
-            label: "Persona 4 Golden",
-            link: "/p4g/getting-started",
-            items: [
-              {
-                label: "Getting Started",
-                autogenerate: { directory: "p4g/getting-started" },
-              },
-            ],
-          },
-          {
-            label: "Persona 3 Reload",
-            link: "/p3r/getting-started",
-            items: [
-              {
-                label: "Getting Started",
-                autogenerate: { directory: "p3r/getting-started" },
-              },
-            ],
-          },
-          {
-            label: "Persona 3 Portable",
+            label: "Persona 3 Portable (PC)",
             link: "/p3p",
             items: [
               {
@@ -125,6 +105,54 @@ export default defineConfig({
                 ],
               },
             ],
+          },
+          {
+            label: "Persona 3 Reload (PC)",
+            link: "/p3r/getting-started",
+            items: [
+              {
+                label: "Getting Started",
+                autogenerate: { directory: "p3r/getting-started" },
+              },
+            ],
+          },
+          {
+            label: "Persona 4 Golden (PC)",
+            link: "/p4g/getting-started",
+            items: [
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    items: ["p4g/getting-started/using-mods/using-mods"],
+                  },
+                  {
+                    label: "Making Mods",
+                    items: [
+                      "p4g/getting-started/making-mods/extracting-files",
+                      "p4g/getting-started/making-mods/making-a-mod",
+                      "p4g/getting-started/making-mods/replacing-files",
+                      "p4g/getting-started/making-mods/publishing-a-mod",
+                    ],
+                  },
+                ],
+              },
+              {
+                label: "Audio Modding",
+                items: [
+                  "p4g/audio/audio-formatting",
+                  "p4g/audio/audio-replacement",
+                  "p4g/audio/audio-addition",
+                  "p4g/audio/battle-music",
+                ],
+              },
+            ],
+          },
+          {
+            label: "Persona 5 Royal (PC)",
+            link: "/p5r/getting-started",
+            items: ["p5r/getting-started"],
           },
         ]),
       ],
