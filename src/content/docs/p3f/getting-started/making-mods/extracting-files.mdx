@@ -1,6 +1,6 @@
 ---
 title: Extracting Files
-description: Instructions for extracting Persona 4 Golden (PC) game files.
+description: Instructions for extracting Persona 3 FES (PS2) game files.
 prev: false
 next: true
 sidebar:
@@ -9,27 +9,24 @@ sidebar:
 
 import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
 
-Before you start making your mod, you'll need to extract the game's base files so you can find what you actually want to edit.
+<Aside>This is placeholder information from P3P and needs to be updated.</Aside>
+
+Before you start making your mod you'll need to extract the game's base files so you can find what you actually want to edit.
 
 <Aside>
-  This process is exactly the same as P3P and P5R. If you've extracted their
-  files previously you already know how to do it for P4G!
+  This process is exactly the same as P4G and P5R. If you've extracted their
+  files previously you already know how to do it for P3P!
 </Aside>
 
 ## Extracting CPKs
 
-All of the game's files are stored in CriWare CPK files as follows:
+All of the game's files are stored in CriWare CPK files named `umd0.cpk` (containing most files) and `umd1.cpk` (containing audo and video files).
 
-- `data.cpk`: Contains most game files
-- `data_movie.cpk`: Contains the animated cutscenes
-- `data_XX.cpk`: Contains files for the given language
-  - Example: `data_e.cpk` contains English specific files
-
-To unpack these, download [CriFsV2Lib.GUI](https://github.com/Sewer56/CriFsV2Lib/releases/latest). Select the file called `CriFsLib.GUI.zip` and extract it somewhere.
-From there, run `CriFsLib.GUI.exe` and you'll be greeted with a window asking you to select a CPK file.
+To unpack these you'll need to download [CriFsV2Lib.GUI](https://github.com/Sewer56/CriFsV2Lib/releases/latest). Select the file called `CriFsLib.GUI.zip` and extract it somewhere.
+From there run `CriFsLib.GUI.exe` and you'll be greeted with a window asking you to select a CPK file.
 
 <Aside>
-The main cpks will contain anything that doesn't change with the language (like models) plus the Japanese versions of all files.
+The main cpks (under the `data` folder) will contain anything that doesn't change with the language (like models) plus the Japanese versions of all files.
 
 The other cpks (under the `data_XX` folders) will **only** contain the files that are specific to that language (mostly text).
 
@@ -41,7 +38,7 @@ Drag your desired CPK into the program and you'll be shown the names of all file
 
 ## Extracting Archives (PAKs)
 
-When you look through your extracted files, you'll find there are many large `bin`, `pac`, and `pak` files. These are archives (collectively referred to as `PAK` files) which contain files inside of them. These are roughly analogous to a `zip` or `rar` file. To extract these you'll need to use one of the following tools.
+When you look through your extracted files you'll find there are many large `bin`, `pac`, and `pak` files. These are archives (collectively referred to as `PAK` files) which contain files inside of them. To extract these you'll need to use one of the following tools.
 
 <Aside>
   Sometimes the `bin` extension is also used for files that are not PAK
@@ -61,11 +58,9 @@ The easiest way to extract files from these archives is [Amicitia](https://githu
 
 ![A screenshot of `init_free.bin` opened in Prsona Editor](../../../../../assets/general/getting-started/extracting-files/persona-editor.png)
 
-### PackTools
+### Command Line
 
-Although Amicitia and PersonaEditor are the most user friendly, they are not good for batch extracting files as only one file can be selected at a time. If you need to perform batch operations, download [PackTools](https://github.com/tge-was-taken/AtlusFileSystemLibrary/releases/latest).
-
-#### Command Line
+Although Amicitia is the most user friendly, it's not good for batch extracting files as you can only select one at a time. If you need to perform batch operations you can download [PackTools](https://github.com/tge-was-taken/AtlusFileSystemLibrary/releases/latest).
 
 <Aside>
   Pack Tools is a CLI (command line interface) so double clicking on
@@ -89,11 +84,11 @@ Get-ChildItem "Path\To\Folder" -Recurse -Filter *.bin | Foreach {&"Path\To\PAKPa
 </TabItem>
 </Tabs>
 
-#### Context Menu
+### Context Menu
 
-To use PAKPack through the Windows context menu to unpack or pack PAK archives, use [PAKPack-Registry](https://github.com/LTSophia/PAKPack-Registry/releases/latest). After downloading and extracting it just run `PAKPack Registry.exe` and the context menu options will be added.
+The final way to extract files is using [PAKPack-Registry](https://github.com/LTSophia/PAKPack-Registry/releases/latest) which adds a context menu option to unpack and pack PAK archives. After downloading and extracting it just run `PAKPack Registry.exe` and you're good to go.
 
-Now, if you right-click a file, you'll have a **PAKPack** option at the top of the menu which can be used to extract the PAK.
+Now whenever you right-click a file you'll have a **PAKPack** option at the top of the menu which can be used to extract the PAK.
 
 ![](../../../../../assets/general/getting-started/extracting-files/pak-unpack-context.png)
 
