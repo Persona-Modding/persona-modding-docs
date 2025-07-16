@@ -7,28 +7,28 @@ import { Aside, FileTree } from "@astrojs/starlight/components";
 All of the documentation on this site is open source and written by community members like you. All contributions are appreciated :)
 
 <Aside>
-Currently you *sort of* need to write code to work on the documntation on this site. However, everything you need to know will be explained here so don't worry, you should be fine regardless of your current knowledge.
+Currently you *sort of* need to write code to work on the documentation on this site. However, everything you need to know will be explained here, so don't worry, you should be fine regardless of your current knowledge.
 
-In the future there may be a more beginner friendly way to edit the docs but for now this will have to do.
+In the future, there may be a more beginner friendly way to edit the docs, but for now this will have to do.
 
 </Aside>
 
 ## Setting Up
 
-The first thing you'll need to do is setup an environment to use for editing the documentation. You can either do this locally or in a browser using GitHub's code spaces feature which is free for 60 hours of use a month (probably more than enough).
+The first thing you'll need to do is set up an environment to use for editing the documentation. You can either do this locally or in a browser using GitHub's code spaces feature which is free for 60 hours of use a month (probably more than enough).
 
 ### Local Setup
 
-To work with thesee docs locally you will need
+To work with these docs locally you will need
 
 - A Git client such as [Git](https://git-scm.com/downloads) (CLI) or [GitHub Desktop](https://desktop.github.com/download/) (GUI for Windows and Mac)
 - An IDE that supports web development such as [VS Code](https://code.visualstudio.com/download) (what this guide assumes you are using)
 - [Node.js](https://nodejs.org/en/download) (and npm) - version 22 will work, others are probably fine too
 - **OR** [Docker](https://www.docker.com/) if you want to use a [dev container](https://containers.dev/) instead of a local install
 
-If you choose to run locally I'll assume that you are capable of installing the above yourself by following their documentation. If you have trouble, consider switching to a [Browser Setup](#browser-setup). It's not that different and you can even still use the vscode desktop app with it (follow through that section to the end to see).
+If you choose to run locally, I'll assume that you are capable of installing the above yourself by following their documentation. If you have trouble, consider switching to a [Browser Setup](#browser-setup). It's not that different and you can even still use the vscode desktop app with it (follow through that section to the end to see).
 
-With the above setup complete, clone the [repository](https://github.com/Persona-Modding/persona-modding.github.io) for the docs by clicking the **Code** button selecting the appropriate option.
+With the above setup complete, clone the [repository](https://github.com/Persona-Modding/persona-modding.github.io) for the docs by clicking the **Code** button, selecting the appropriate option.
 
 ![A screenshot of the code cloning menu on github](../../../assets/general/contributing/clone-repo.png)
 
@@ -39,7 +39,7 @@ After this finishes you can run `npm run dev` to start up the app. Open up the l
 
 ![A screenshot of the `npm run dev` command being run](../../../assets/general/contributing/npm-run-dev.png)
 
-If you'd rather use a dev container first install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in VS Code.
+If you'd rather use a dev container, first install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in VS Code.
 
 ![A screenshot of the dev containers extension](../../../assets/general/contributing/dev-containers-extension.png)
 
@@ -116,29 +116,40 @@ For example, to add your Editing Music page to P4G's sidebar you would change th
 
 ```js ins={18}
 starlightSidebarTopics([
-    {
-    label: "Persona 4 Golden",
-    link: "/p4g/getting-started",
-    items: [
-        {
-        label: "Getting Started",
-        items: [
-            "p4g/getting-started/installing-mods",
-            "p4g/getting-started/troubleshooting",
-            "p4g/getting-startedfaq",
-            ],
-        },
-        {
-            label: "Audio",
+          {
+            label: "Persona 4 Golden (PC)",
+            link: "/p4g",
             items: [
-                "p4g/audio/editing-voice-lines",
-                "p4g/audio/editing-music"
-            ]
-        }
-    ],
-    },
+              "p4g",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p4g/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p4g/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+              {
+                label: "Audio Modding",
+                autogenerate: {
+                  directory: "p4g/audio/",
+                },
+              },
+            ],
+          },
 ]),
 ```
+
+Generally, the `autogenerate` parameter should be used for new categories, as shown in the Audio Modding section, but if you want to have a category within a category, you will need to use the `items` parameter too, as shown in the Getting Started section.
 
 With that done, you should now see your new Editing Music page under the Audio section of the P4G docs.
 
@@ -157,9 +168,9 @@ Give some guidelines on how the docs should be written and stuff maybe
 
 ## Submitting Changes
 
-It's just GitHub, make a pr and wait for someone to review it :)
+It's just GitHub, make a PR and wait for someone to review it :)
 
 <Aside type="danger">
-  TODO actually give som steps, it's meant to be beginner friendly. I said no
+  TODO actually give some steps, it's meant to be beginner friendly. I said no
   prior knowledge needed
 </Aside>
