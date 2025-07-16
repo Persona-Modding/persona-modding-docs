@@ -25,6 +25,7 @@ export default defineConfig({
         // Override the default `Sidebar` component with a custom one.
         Sidebar: "./src/components/Sidebar.astro",
       },
+      lastUpdated: true,
       plugins: [
         starlightSidebarTopics([
           {
@@ -35,38 +36,54 @@ export default defineConfig({
           {
             label: "Persona 3 FES (PS2)",
             link: "/p3f",
-            items: ["p3f/getting-started"],
-          },
-          {
-            label: "Persona 3 Portable (PC)",
-            link: "/p3p",
             items: [
+              "p3f",
               {
                 label: "Getting Started",
                 items: [
                   {
                     label: "Using Mods",
-                    items: ["p3p/getting-started/using-mods/using-mods"],
+                    autogenerate: {
+                      directory: "p3f/getting-started/using-mods/",
+                    },
                   },
                   {
                     label: "Making Mods",
-                    items: [
-                      "p3p/getting-started/making-mods/extracting-files",
-                      "p3p/getting-started/making-mods/making-a-mod",
-                      "p3p/getting-started/making-mods/replacing-files",
-                      "p3p/getting-started/making-mods/publishing-a-mod",
-                    ],
+                    autogenerate: {
+                      directory: "p3f/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            label: "Persona 3 Portable (PC)",
+            link: "/p3p",
+            items: [
+              "p3p",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p3p/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p3p/getting-started/making-mods/",
+                    },
                   },
                 ],
               },
               {
                 label: "Audio Modding",
-                items: [
-                  "p3p/audio/audio-formatting",
-                  "p3p/audio/audio-replacement",
-                  "p3p/audio/audio-addition",
-                  "p3p/audio/battle-music",
-                ],
+                autogenerate: {
+                  directory: "p3p/audio/",
+                },
               },
             ],
           },
@@ -76,7 +93,20 @@ export default defineConfig({
             items: [
               {
                 label: "Getting Started",
-                autogenerate: { directory: "p3r/getting-started" },
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p3r/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p3r/getting-started/making-mods/",
+                    },
+                  },
+                ],
               },
             ],
           },
@@ -84,44 +114,79 @@ export default defineConfig({
             label: "Persona 4 Golden (PC)",
             link: "/p4g",
             items: [
+              "p4g",
               {
                 label: "Getting Started",
                 items: [
                   {
                     label: "Using Mods",
-                    items: ["p4g/getting-started/using-mods/using-mods"],
+                    autogenerate: {
+                      directory: "p4g/getting-started/using-mods/",
+                    },
                   },
                   {
                     label: "Making Mods",
-                    items: [
-                      "p4g/getting-started/making-mods/extracting-files",
-                      "p4g/getting-started/making-mods/making-a-mod",
-                      "p4g/getting-started/making-mods/replacing-files",
-                      "p4g/getting-started/making-mods/publishing-a-mod",
-                    ],
+                    autogenerate: {
+                      directory: "p4g/getting-started/making-mods/",
+                    },
                   },
                 ],
               },
               {
                 label: "Audio Modding",
-                items: [
-                  "p4g/audio/audio-formatting",
-                  "p4g/audio/audio-replacement",
-                  "p4g/audio/audio-addition",
-                  "p4g/audio/battle-music",
-                ],
+                autogenerate: {
+                  directory: "p4g/audio/",
+                },
               },
             ],
           },
           {
             label: "Persona 5 Royal (PC)",
             link: "/p5r",
-            items: ["p5r/getting-started"],
+            items: [
+              "p5r",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p5r/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p5r/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+            ],
           },
           {
             label: "Metaphor Refantazio (PC)",
             link: "/metaphor",
-            items: ["metaphor/getting-started"],
+            items: [
+              "metaphor",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "metaphor/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "metaphor/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+            ],
           },
         ]),
       ],
