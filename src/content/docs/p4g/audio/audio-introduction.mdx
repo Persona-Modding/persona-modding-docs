@@ -1,0 +1,47 @@
+---
+title: Introduction to Audio Editing
+description: Introduction to audio editing for Persona 4 Golden (PC).
+prev: false
+next: true
+sidebar:
+  order: 0
+---
+
+## Format and Location
+
+Persona 4 Golden (PC) generally stores its audio as unecrypted [HCA](https://amicitia.miraheze.org/wiki/HCA) files packed inside [AWB](https://amicitia.miraheze.org/wiki/AWB) file. AWB files are sometimes accompanied by a corresponding [ACB](https://amicitia.miraheze.org/wiki/ACB) file. For the purposes of audio modding, you will generally only care about the AWB file.
+
+Audio is stored in the following locations:
+
+- Music, event SFX, ambience, etc.: `data.cpk/sound/adx2/bgm/snd00_bgm.awb`
+  - English specific audio is stored in `data.cpk/sound/adx2/bgm_en/snd00_bgm.awb`
+  - P4G's TV listing audio (interviews, hidden Teddie audio) is also stored in this file.
+- Event voice lines:
+  - Japanese: `data.cpk/sound/adx2/v...`
+  - English: `data.cpk/sound/adx2/en/v...`
+- Event generic voice lines:
+  - Japanese: `data.cpk/sound/adx2/commu.awb`
+  - English: `data.cpk/sound/adx2/en/commu.awb`
+- Navi voice lines:
+  - Japanese: `data.cpk/sound/adx2/btlhlp_k` (Teddie), `data.cpk/sound/adx2/btlhlp_r` (Rise)
+  - English: `data.cpk/sound/adx2/en/btlhlp_k` (Teddie), `data.cpk/sound/adx2/en/btlhlp_r` (Rise)
+- Battle SFX: `data.cpk/sound/adx2/comse/snd04_comse.awb`
+- Battle voice lines:
+  - Japanese: `data.cpk/sound/adx2/btlmem.awb`
+  - English: `data.cpk/sound/adx2/en/btlmem.awb`
+- Battle grunts: stored within model PAK files
+  - Japanese: `data.cpk/model/pack/<model>.pac/<model archive>.se/<model archive>.acb`
+  - English: `data.cpk/model/pack/<model>.pac/<model archive>.se/<model archive>_e.acb`
+  - Many of the character model files are documented [here](https://amicitia.miraheze.org/wiki/Persona_4_Golden/data.cpk/model/pack/Characters).
+
+## Playing and Extracting Audio
+
+:::note
+Flesh out this section with more details and pictures
+:::
+
+### foobar2000
+
+[foobar2000](https://www.foobar2000.org/download) with the [vgmstream plugin](https://www.foobar2000.org/components/view/foo_input_vgmstream) is the recommended tool for opening P4G's audio files. It can directly open AWB and HCA files.
+
+Additionally, audio within archives can be converted to common audio formats such as WAV by right clicking and selecting **Convert**.
