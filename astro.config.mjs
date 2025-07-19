@@ -34,7 +34,12 @@ export default defineConfig({
           {
             label: "General",
             link: "/general/contributing",
-            items: ["general/contributing"],
+            items: [
+              {
+                label: "Contributing",
+                autogenerate: { directory: "/general/contributing" },
+              },
+            ],
           },
           {
             label: "Persona 3 FES (PS2)",

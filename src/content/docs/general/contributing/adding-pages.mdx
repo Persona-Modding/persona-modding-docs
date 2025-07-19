@@ -1,0 +1,196 @@
+---
+title: Adding Pages
+description: Learn how to add a new page to the site
+sidebar:
+    order: 2
+---
+import {FileTree, Aside} from "@astrojs/starlight/components";
+
+
+All pages on this site are written in [MDX](https://mdxjs.com/) files organised under the `src/content/docs` directory.
+These are grouped into games such as `p4g` and categories for each game such as `audio`.
+
+<Aside>
+    The sidebar in this site is handled by the [Starlight Sidebar Topics](https://starlight-sidebar-topics.netlify.app/) plugin. 
+    
+    Whilst this page should give you enough information to make most changes you can check out the plugin's [documentation](https://starlight-sidebar-topics.netlify.app/docs/configuration/) for more details.
+</Aside>
+
+## Adding a Page
+To add a page to an existing category you first need to create an `mdx` file with an appropriate name to the correct directory.
+
+For example, to add a page about event music to the Audio category of P4G you would add a file like `event-music.mdx` to the `src/content/docs/p4g/audio` directory.
+
+<FileTree>
+- src
+    - content
+        - docs
+            - p4g
+                - audio
+                    - audio-addition.mdx
+                    - audio-creation.mdx
+                    - **event-music.mdx**
+                    - ...
+</FileTree>
+
+In this file you need to add some frontmatter to get started. This is metadata that is wrapped inside of two sets of `---`s and uses the [YAML](https://yaml.org/) format.
+You should always set at least the `title`, `description`, and `sidebar.order` in a page's frontmatter. 
+
+For example, for the event music page this may look like
+
+```mdx
+---
+title: Event Music
+description: Learn how to edit event music in Persona 4 Golden (PC).
+sidebar:
+    order: 3
+---
+```
+
+These properties mean:
+- `title` - The title of the page and the name of the link in the sidebar
+- `description` - A description that is shown in the embed when someone links to this page
+- `sidebar.order` - The order that this page is shown at in the sidebar. Pages are sorted alphabetically if this is not set (not what we want!)
+
+Two other properties that you might find useful are `prev` and `next`. By setting these to `false` you can hide the next or previous buttons that display at the bottom of the page. This is useful in cases where these end up linking to a page that is in a completely different category (which we don't want).
+
+<Aside>
+Whilst these few properties are all you should typically need to set, you can check out Starlight's [Frontmatter Reference](https://starlight.astro.build/reference/frontmatter/) for a full list of valid properties if you're interested.
+</Aside>
+
+With the frontmatter for your page set up you should now see it in the live preview of the website. 
+Check out the [Writing Content](/general/contributing/writing-content) page to learn how to actually add stuff to it.
+
+## Adding a Page Group
+
+To add a new page group to the sidebar you need to update the  `starlightSidebarTopics` config in the `astro.config.mjs` file at the root directory of the repo.
+
+For example, to add a Reverse Engineering category to P4G you would update the conifg like
+
+```js ins={13-18}
+starlightSidebarTopics([
+    {
+    label: "Persona 4 Golden (PC)",
+    link: "/p4g",
+    items: [
+        "p4g",
+        {
+            label: "Audio Modding",
+            autogenerate: {
+                directory: "p4g/audio/",
+            },
+        },
+        {
+            label: "Reverse Engineering",
+            autogenerate: {
+                directory: "p4g/reverse-engineering/",
+            },
+        },
+    ],
+    },
+]),
+```
+
+The properties that you're using are:
+
+- `label` - The label displayed in the sidebar for this group
+- `autogenerate.directory` - The directory (under `src/content/docs`) that all of the files for this group will be put in
+
+Then to add pages to your category you would make `mdx` files in `src/content/docs/p4g/reverse-engineering` as described in [Adding a Page](#adding-a-page).
+
+## Adding a Page Sub-Group
+Adding a sub-group is similar to adding a full group. The setting for the parent group needs to be updated to use an `items` array instead of the `autogenerate` property. From there, you put a group object in the `items` array for each sub-group.
+
+For example, if the Reverse Engineering category needs to be split up into Beginner and Advanced sub-groups it would be updated like
+
+```js del={15-17} ins={18-31}
+starlightSidebarTopics([
+    {
+    label: "Persona 4 Golden (PC)",
+    link: "/p4g",
+    items: [
+        "p4g",
+        {
+            label: "Audio Modding",
+            autogenerate: {
+                directory: "p4g/audio/",
+            },
+        },
+        {
+            label: "Reverse Engineering",
+            autogenerate: {
+                directory: "p4g/reverse-engineering/",
+            },
+            items: [
+                {
+                    label: "Beginner",
+                    autogenerate: {
+                        directory: "p4g/reverse-engineering/beginner"
+                    }
+                },
+                {
+                    label: "Advanced",
+                    autogenerate: {
+                        directory: "p4g/reverse-engineering/advanced"
+                    }
+                }
+            ]
+        },
+    ],
+    },
+]),
+```
+
+## Adding a Game
+To add a new game to the dropdown menu you need to update the `starlightSidebarTopics` configuration in the `astro.config.mjs` file at the root of this repo. This process is similar to adding new page grous/sub-groups.
+
+For example, to add Persona Q you would update the config like
+```js ins={12-22}
+starlightSidebarTopics([
+    {
+        label: "General",
+        link: "/general/contributing",
+        items: [
+            {
+            label: "Contributing",
+            autogenerate: { directory: "/general/contributing" },
+            },
+        ],
+    },
+    {
+        label: "Persona Q",
+        link: "/pq",
+        items: [
+            "pq"
+            {
+                label: "Getting Started",
+                autogenerate: { directory: "/pq/getting-started" },
+            },
+        ],
+    },
+]),
+```
+
+The properties used are:
+
+- `label` - The label displayed in the dropdown menu of games
+- `link` - The link that you are taken to when clicking on the game from the dropdown (like a home page for the game)
+- `items` - The list of items to show in the sidebar for the game
+
+The first item in the `items` array is just the string `pq` as this is just a single page (the home page pointed to by the `link: "/pq"` property), not a category. 
+Other than this home page you will generally want to group pages into categories, such as the Getting Started category.
+
+With the sidbear config updated you can then go and create all of your pages. Here the root has been defined as `/pq` by the `link` property so all of the pages for Persona Q will go under `src/content/docs/pq`. For example, you would end up with files looking like:
+
+<FileTree>
+- src
+    - content
+        - docs
+            - pq
+                - **index.mdx** The home page
+                - getting-started
+                    - setup.mdx
+                    - troubleshooting.mdx
+</FileTree>
+
+Note that the `index.mdx` file at the root of `pq` is the home page, what you get to when you click on the game in the dropdown. Other than that, everything else is fairly standard.
