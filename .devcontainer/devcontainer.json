@@ -9,7 +9,8 @@
       "extensions": [
         "astro-build.astro-vscode",
         "unifiedjs.vscode-mdx",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-pull-request-github"
       ]
     }
   },
