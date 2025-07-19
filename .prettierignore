@@ -1,2 +1,4 @@
 node_modules
 .astro
+# Prettier does not play well with some things like the FileTree :(
+*.mdx
