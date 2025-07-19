@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightSidebarTopics from "starlight-sidebar-topics";
+import starlightImageZoomPlugin from "starlight-image-zoom";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +31,7 @@ export default defineConfig({
       },
       lastUpdated: true,
       plugins: [
+        starlightImageZoomPlugin(),
         starlightSidebarTopics([
           {
             label: "General",
