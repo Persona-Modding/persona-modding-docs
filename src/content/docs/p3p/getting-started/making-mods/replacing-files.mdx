@@ -1,5 +1,10 @@
 ---
-title: Replacing Files
+title: Adding Mod Files
+description: How to add modded files into a Persona 3 Portable (PC) mod.
+prev: true
+next: true
+sidebar:
+  order: 2
 ---
 
 import { Aside, FileTree } from "@astrojs/starlight/components";
@@ -42,8 +47,14 @@ To replace Junpei's bustup, which uses the file `c_cha05a.tmx` you would put a m
 Your mod would end up looking like:
 
 <FileTree>
-  - p3ppc.test.myMod - ModConfig.json Automatically managed by Reloaded -
-  P5REssentials - CPK - umd0.cpk - camp - bustup - **c_cha05a.tmx**
+  - p3ppc.test.myMod 
+    - ModConfig.json Automatically managed by Reloaded 
+      - P5REssentials 
+        - CPK 
+          - umd0.cpk 
+            - camp 
+              - bustup 
+                - **c_cha05a.tmx**
 </FileTree>
 
 Loading up the game you should then see that Junpei's bustup is replaced with your new one. In my case, I just copied Koromaru's bustup (`c_cha10a.tmx`) and renamed it.
@@ -83,8 +94,14 @@ To replace this file, you would then need to put a modified tmx with the same na
 Your mod would then look like
 
 <FileTree>
-  - p3ppc.test.myMod - ModConfig.json Automatically managed by Reloaded -
-  FEmulator - PAK - init_2.bin - camp - bustup - **c_cha01a.tmx**
+  - p3ppc.test.myMod 
+    - ModConfig.json Automatically managed by Reloaded 
+    - FEmulator 
+      - PAK 
+        - init_2.bin 
+          - camp 
+            - bustup 
+              - **c_cha01a.tmx**
 </FileTree>
 
 There are two things to note here:

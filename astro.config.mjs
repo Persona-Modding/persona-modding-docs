@@ -25,98 +25,165 @@ export default defineConfig({
         // Override the default `Sidebar` component with a custom one.
         Sidebar: "./src/components/Sidebar.astro",
       },
+      lastUpdated: true,
       plugins: [
         starlightSidebarTopics([
           {
-            label: "Persona 5 Royal",
-            link: "/p5r/getting-started",
-            items: ["p5r/getting-started"],
+            label: "General",
+            link: "/general/contributing",
+            items: ["general/contributing"],
           },
           {
-            label: "Persona 4 Golden",
-            link: "/p4g/getting-started",
+            label: "Persona 3 FES (PS2)",
+            link: "/p3f",
             items: [
+              "p3f",
               {
                 label: "Getting Started",
-                autogenerate: { directory: "p4g/getting-started" },
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p3f/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p3f/getting-started/making-mods/",
+                    },
+                  },
+                ],
               },
             ],
           },
           {
-            label: "Persona 3 Reload",
-            link: "/p3r/getting-started",
-            items: [
-              {
-                label: "Getting Started",
-                autogenerate: { directory: "p3r/getting-started" },
-              },
-            ],
-          },
-          {
-            label: "Persona 3 Portable",
+            label: "Persona 3 Portable (PC)",
             link: "/p3p",
+            items: [
+              "p3p",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p3p/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p3p/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+              {
+                label: "Audio Modding",
+                autogenerate: {
+                  directory: "p3p/audio/",
+                },
+              },
+            ],
+          },
+          {
+            label: "Persona 3 Reload (PC)",
+            link: "/p3r",
             items: [
               {
                 label: "Getting Started",
                 items: [
                   {
                     label: "Using Mods",
-                    items: [
-                      {
-                        label: "Windows",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/windows/installing-mods",
-                          "p3p/getting-started/using-mods/windows/troubleshooting",
-                          "p3p/getting-started/using-mods/windows/faq",
-                        ],
-                      },
-                      {
-                        label: "Steam Deck",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/steam-deck/installing-mods",
-                          "p3p/getting-started/using-mods/steam-deck/troubleshooting",
-                          "p3p/getting-started/using-mods/steam-deck/faq",
-                        ],
-                      },
-                      {
-                        label: "Linux",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/linux/installing-mods",
-                          "p3p/getting-started/using-mods/linux/troubleshooting",
-                          "p3p/getting-started/using-mods/linux/faq",
-                        ],
-                      },
-                      {
-                        label: "Common",
-                        collapsed: true,
-                        items: [
-                          "p3p/getting-started/using-mods/common/troubleshooting",
-                          "p3p/getting-started/using-mods/common/faq",
-                        ],
-                      },
-                    ],
+                    autogenerate: {
+                      directory: "p3r/getting-started/using-mods/",
+                    },
                   },
                   {
                     label: "Making Mods",
-                    items: [
-                      "p3p/getting-started/making-mods/extracting-files",
-                      "p3p/getting-started/making-mods/making-a-mod",
-                      "p3p/getting-started/making-mods/replacing-files",
-                      "p3p/getting-started/making-mods/publishing-a-mod",
-                    ],
+                    autogenerate: {
+                      directory: "p3r/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            label: "Persona 4 Golden (PC)",
+            link: "/p4g",
+            items: [
+              "p4g",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p4g/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p4g/getting-started/making-mods/",
+                    },
                   },
                 ],
               },
               {
                 label: "Audio Modding",
+                autogenerate: {
+                  directory: "p4g/audio/",
+                },
+              },
+            ],
+          },
+          {
+            label: "Persona 5 Royal (PC)",
+            link: "/p5r",
+            items: [
+              "p5r",
+              {
+                label: "Getting Started",
                 items: [
-                  "p3p/audio/audio-formatting",
-                  "p3p/audio/audio-replacement",
-                  "p3p/audio/audio-addition",
-                  "p3p/audio/battle-music",
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "p5r/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "p5r/getting-started/making-mods/",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            label: "Metaphor Refantazio (PC)",
+            link: "/metaphor",
+            items: [
+              "metaphor",
+              {
+                label: "Getting Started",
+                items: [
+                  {
+                    label: "Using Mods",
+                    autogenerate: {
+                      directory: "metaphor/getting-started/using-mods/",
+                    },
+                  },
+                  {
+                    label: "Making Mods",
+                    autogenerate: {
+                      directory: "metaphor/getting-started/making-mods/",
+                    },
+                  },
                 ],
               },
             ],

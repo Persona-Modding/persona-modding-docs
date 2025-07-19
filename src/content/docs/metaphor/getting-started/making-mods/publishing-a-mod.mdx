@@ -1,0 +1,91 @@
+---
+title: Publishing A Mod
+description: How to publish a mod for Metaphor Refantazio (PC).
+prev: true
+next: false
+sidebar:
+  order: 3
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+<Aside>This is placeholder information from P4G and needs to be updated.</Aside>
+
+Now that you have [made a mod](../making-a-mod) and [replaced some files](../replacing-files) with it, you'll want to share your creation with the world.
+
+<Aside>
+  Publishing a Reloaded-II mod to [Gamebanana](https://gamebanana.com/) (where
+  most Persona mods are posted) is the same for every game. If you've previously
+  posted Reloaded-II mods to GameBanana then you already know how to do it for
+  P4G!
+</Aside>
+
+## Setting up a mod page
+
+It is important to set up a mod page first, as the ID of your mod page is required in order to set up automatic updates in Reloaded-II. Otherwise, mods will not be available for one-click install on GameBanana and they won't receive updates.
+
+Go to the [P4G PC (x64) GameBanana page](https://gamebanana.com/games/17755), and click the Add button.
+
+![](../../../../../assets/p4g/getting-started/publishing-a-mod/gb-add.png)
+
+Select an appropriate section for your mod; most mods will simply fall under `Mod`, but some may fall under `Sound` for music/SFX mods, `Tool` for applications related to mod making, etc.
+
+<Aside type="caution">
+  It is important to upload your mod under the correct section or the mod may be
+  taken down and you will need to reupload it in the correct category! For
+  example, music/SFX *must* be posted as a **Sound**.
+</Aside>
+
+Fill out the required fields:
+
+- Main
+  - Mod Title
+  - Mod Category: _Choose the category that best describes your mod._
+  - Body
+- Ownership
+  - Is this a port?
+  - Did you create this Mod?
+  - Authors
+  - Screenshots
+  - Files: _Placeholder file(s) can be uploaded for now, but make sure to add the relevant mod files before posting the mod publicly._
+- Settings
+  - Access: **_Set this to private!_**
+
+![](../../../../../assets/general/getting-started/publishing-a-mod/gb-private.png)
+
+:::warning
+Before saving, **remember to set the mod access to Private!** Otherwise you will publicly publish a mod with no content in it!
+:::
+
+Click Submit at the bottom, and you will be taken to the mod page. Your mod ID is found in the URL. Save this for the next step!
+
+![](../../../../../assets/general/getting-started/publishing-a-mod/gb-id.png)
+
+## Setting Update Support
+
+In Reloaded-II, select your mod, click **Edit**, and go to **Update Support**.
+
+Click on GameBanana, then set `ItemId` to the mod ID you got previously. Also set `ItemType` to the category your mod is in (Mod, Sound, etc).
+
+![](../../../../../assets/general/getting-started/publishing-a-mod/r2-update-support.png)
+
+## Publishing Your Mod
+
+Now, right click your mod and click **Publish**. Set your Publish Target to GameBanana, set a readme and/or changelog file as desired, then click **Publish**.
+
+![](../../../../../assets/p4g/getting-started/publishing-a-mod/r2-publish.png)
+
+:::info
+For more details, click on Publishing Tutorial or go to the [Reloaded-II documentation](https://reloaded-project.github.io/Reloaded-II/CreatingRelease/).
+:::
+
+After publishing your mod, it will export the files to the directory shown in the Publish Mod window and automatically open a new window to that filepath.
+
+![](../../../../../assets/p4g/getting-started/publishing-a-mod/export.png)
+
+There will be two files:
+
+- A compressed file with your mod in it
+- A JSON file with update information
+
+Upload both of these files to the Files section of your mod page, finalize any other fields you may have left as placeholders, set mod access to Public, and then click Submit to publicly publish your mod!
