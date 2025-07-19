@@ -6,6 +6,9 @@ import starlightSidebarTopics from "starlight-sidebar-topics";
 // https://astro.build/config
 export default defineConfig({
   site: "https://personamodding.com",
+  experimental: {
+    contentIntellisense: true,
+  },
   integrations: [
     starlight({
       title: "Persona Modding",
