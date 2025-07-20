@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  /**
+   * The path to the image, if not using dark and light options
+   */
+  src?: ImageMetadata;
+
+  /**
+   * The path to the image when in dark mode
+   */
+  darkSrc?: ImageMetadata;
+
+  /**
+   * The path to the image when in light mode
+   */
+  lightSrc?: ImageMetadata;
+
+  /**
+   * The address that clicking the image takes you to
+   */
+  href: string;
+
+  /**
+   * Alt text for the image. Used for accessibility to describe what it is for
+   */
+  alt: string;
+}
+
+const { src, darkSrc, lightSrc, href, alt } = Astro.props;
+---
+
+{
+  darkSrc && (
+    <a href={href}>
+      <Image
+        src={darkSrc}
+        alt={alt}
+        class:list={{ "light:sl-hidden": Boolean(lightSrc) }}
+      />
+    </a>
+  )
+}
+
+{
+  lightSrc && (
+    <a href={href}>
+      <Image
+        src={lightSrc}
+        alt={alt}
+        class:list={{ "dark:sl-hidden": Boolean(darkSrc) }}
+      />
+    </a>
+  )
+}
+
+{
+  src && (
+    <a href={href}>
+      <Image src={src} alt={alt} />
+    </a>
+  )
+}

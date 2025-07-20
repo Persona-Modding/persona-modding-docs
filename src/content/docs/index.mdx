@@ -1,23 +1,45 @@
 ---
-title: Persona Modding Documentation
-description: Get started building your docs site with Starlight.
+title: Persona Modding
+description: The official website for the Persona Modding community
 template: splash
 hero:
-  tagline: Welcome to the new and improved documentation site!
+  tagline: Learn how to mod games from the Persona series!
 ---
 import { Card, CardGrid, LinkCard, LinkButton, Badge, Aside } from "@astrojs/starlight/components";
+import { ContributorList } from "starlight-contributor-list";
+import AdvancedLinkCard from "../../components/AdvancedLinkCard.astro";
+import ImageLink from "@components/ImageLink.astro";
 
-<LinkButton  href="/general/contributing/setup" variant="primary" size="large" >Click this to learn how to contribute to documentation.</LinkButton>
----
-<LinkButton  href="/p3f" variant="primary" >![Link to the P3P modding documentation.](../../assets/P3F.png)</LinkButton>
----
-<LinkButton  href="/p3p" variant="primary" >![Link to the P3P modding documentation.](../../assets/P3P.png)</LinkButton>
----
-<LinkButton  href="/p3r/" variant="primary" >![Link to the P3R modding documentation.](../../assets/P3R.png)</LinkButton>
----
-<LinkButton  href="/p4g/" variant="primary" >![Link to the P4G modding documentation.](../../assets/P4G.png)</LinkButton>
----
-<LinkButton  href="/p5r/" variant="primary" >![Link to the P5R modding documentation.](../../assets/P5R.png)</LinkButton>
----
-<LinkButton  href="/general/contributing" variant="primary" >![Link to the Metaphor modding documentation.](../../assets/Metaphor.png)</LinkButton>
----
+import p3fDark from "@assets/p3f/logo-dark.png";
+import p3fLight from "@assets/p3f/logo-light.png";
+
+import p3pDark from "@assets/p3p/logo-dark.png";
+import p3pLight from "@assets/p3p/logo-light.png";
+
+import p3rDark from "@assets/p3r/logo-dark.png";
+import p3rLight from "@assets/p3r/logo-light.png";
+
+import p4gLogo from "@assets/p4g/logo.png";
+
+import p5rLogo from "@assets/p5r/logo.png";
+
+import metaphorDark from "@assets/metaphor/logo-dark.png";
+import metaphorLight from "@assets/metaphor/logo-light.png";
+
+<div style="display:flex; gap: 20px;">
+  <ImageLink href="/p3f" darkSrc={p3fDark} lightSrc={p3fLight} alt="Link to the Persona 3 FES modding documentation"></ImageLink>
+
+  <ImageLink href="/p3p" darkSrc={p3pDark} lightSrc={p3pLight} alt="Link to the Persona 3 Portable modding documentation"></ImageLink>
+
+  <ImageLink href="/p3r" darkSrc={p3rDark} lightSrc={p3rLight} alt="Link to the Persona 3 Reload modding documentation"></ImageLink>
+
+  <ImageLink href="/p4g" src={p4gLogo} alt="Link to the Persona 4 Golden modding documentation"></ImageLink>
+
+  <ImageLink href="/p5r" src={p5rLogo} alt="Link to the Persona 5 Royal modding documentation"></ImageLink>
+
+  <ImageLink href="/metaphor" darkSrc={metaphorDark} lightSrc={metaphorLight} alt="Link to the Metaphor: ReFantazio modding documentation"></ImageLink>
+</div>
+
+<AdvancedLinkCard title="Contributing" description="Contribute to the site like these cool people. It's all open source!" href="/general/contributing/setup">
+  <ContributorList githubRepo="persona-modding/persona-modding.github.io"></ContributorList>
+</AdvancedLinkCard>
