@@ -29,13 +29,13 @@ export default defineConfig({
         // Override the default `Sidebar` component with a custom one.
         Sidebar: "./src/components/Sidebar.astro",
       },
-      lastUpdated: true,
+      lastUpdated: false,
       plugins: [
         starlightImageZoomPlugin(),
         starlightSidebarTopics([
           {
             label: "General",
-            link: "/general/contributing",
+            link: "/general/contributing/setup",
             items: [
               {
                 label: "Contributing",
