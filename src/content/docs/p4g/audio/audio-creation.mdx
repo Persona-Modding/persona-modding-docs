@@ -7,6 +7,8 @@ sidebar:
   order: 1
 ---
 
+import { Aside, Tabs, TabItem } from "@astrojs/starlight/components";
+
 ## Prerequisites
 
 To create audio files for Persona 4 Golden (PC), you will need the following at minimum:
@@ -31,11 +33,14 @@ If you are editing an audio file that requires looping, read [Looping Audio](#lo
 
 If your audio file requires loops, you will need to find and set up loop points, which tell the audio where to start looping again. In some cases, this is as simple as finding start and end loop points, and in other cases, more advanced audio editing needs to be done in order to ensure a clean sounding loop. Generally, video game songs tend to be composed with looping in mind, but other songs may be more difficult to loop.
 
-### Automatically Finding Loop Points
+There are three ways to get loop points depending on your use case. In most cases, you will want to automatically find loop points using PyMusicLooper. In some cases, you may need to manually find loop points. In other cases, you may simply need to loop the entire file from start to end. These methods are detailed below.
+
+<Tabs>
+  <TabItem label="Automatic (PyMusicLooper)">
 
 The simplest way to get loop points is to use [PyMusicLooper](https://github.com/arkrow/PyMusicLooper) to automatically find optimal loop points. PyMusicLooper is a command-line interface (CLI) program, which means you have to run it by directly inputting commands into a terminal rather than using a GUI like with many other programs.
 
-Open a terminal in the same spot as your audio files (either command prompt or Powershell). Type in the following command: `pymusiclooper -i export-points --path <audio file>`
+Open a terminal in the same spot as your audio files (either command prompt or Powershell). Type in the following command: `pymusiclooper --samples -i play --path <audio file>`
 
 The program will take a few seconds to process the audio file and try to find the best loop, then it will output the following:
 
@@ -49,19 +54,11 @@ Generally, the lower the index, the better the loop will be, but make sure the l
 It is highly recommended that you listen to the preview to ensure that the loop actually sounds good. You can input `Ctrl + C` once to stop the song from continuing to loop, and again to stop the song playback and return to the loop point menu. For example, to preview the loop with index 0, type `0p`.
 :::
 
-Once you've found a loop you like, type in the index to get the start and end loop points.
+Once you've found a loop you like, save the loop start and loop end values; you will use them when converting your audio in the [next section](/p4g/audio/audio-conversion).
 
-![](../../../../assets/general/audio/pymusiclooper-get-loop-points.png)
-
-Save these loop points; you will use them when [converting your audio](#converting-audio).
-
-### Looping from Start to End
-
-For a simple loop where you loop from the very start to the very end of the audio file, you do not need to find the specific loop points; you can automatically create this loop when converting your file. Skip to [Converting Audio](#converting-audio) for more details.
-
-### Manually Finding Loop Points
-
-In some cases, you may need to manually find loop points. For example, PyMusicLooper may not give you a desirable loop, you might need to do some audio editing to create a decent loop, etc.
+  </TabItem>
+  <TabItem label="Manual (Audacity)">
+In some cases, manual looping may be necessary or desirable. For example, PyMusicLooper may not give you a desirable loop, you might need to do some audio editing to create a decent loop, etc.
 
 To do this, open your replacement audio file in [Audacity](https://www.audacityteam.org/download/). Select the start and end of the section of song you want to loop, then set the selection toolbar (at the bottom of the screen) to "Start and End of Selection" with the time displayed as samples.
 
@@ -71,10 +68,12 @@ With newer versions of Audacity, you can preview the loop by clicking the **Enab
 
 ![](../../../../assets/general/audio/audacity-loop-playback.png)
 
-Save these loop points; you will use them when [converting your audio](#converting-audio).
+Save these loop points; you will use them when converting your audio in the [next section](/p4g/audio/audio-conversion).
 
-## Converting Audio
+  </TabItem>
+  <TabItem label="Looping From Start To End">
 
-:::note
-This section isn't done yet! (obviously)
-:::
+For a simple loop where you loop from the very start to the very end of the audio file, you do not need to find the specific loop points; you can automatically create this loop when converting your file by not specifying loop points in Yona. Skip to the [next section](/p4g/audio/audio-conversion) for more details.
+
+  </TabItem>
+</Tabs>
